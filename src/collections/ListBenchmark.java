@@ -34,6 +34,7 @@ public class ListBenchmark<E> extends collections.Collections{
         for (String value : values) {
             list.add((E) value);
         }
+        //
     }
 
     @Override
