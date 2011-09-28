@@ -10,7 +10,7 @@ import java.util.TreeMap;
  *
  * @author geovane
  */
-public class MapBenchmark<E,T> extends collections.Collections {
+public class MapBenchmark<E,T> extends collections.CollectionsBenchmark {
 
     private Map<E,T> hashMap;
     private Map<E,T> linkedHashMap;

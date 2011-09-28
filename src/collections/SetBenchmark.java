@@ -10,7 +10,7 @@ import java.util.TreeSet;
  *
  * @author geovane
  */
-public class SetBenchmark<E> extends collections.Collections {
+public class SetBenchmark<E> extends collections.CollectionsBenchmark {
 
     private Set<E> hashSet;
     private Set<E> linkedHashSet;
@@ -61,15 +61,15 @@ public class SetBenchmark<E> extends collections.Collections {
 
     @Override
     public void remove() {
-        getSearchTime(0).setInit(System.currentTimeMillis());
+        getRemoveTime(0).setInit(System.currentTimeMillis());
         removeSet(hashSet);
-        getSearchTime(0).setEnd(System.currentTimeMillis());
-        getSearchTime(1).setInit(System.currentTimeMillis());
+        getRemoveTime(0).setEnd(System.currentTimeMillis());
+        getRemoveTime(1).setInit(System.currentTimeMillis());
         removeSet(linkedHashSet);
-        getSearchTime(1).setEnd(System.currentTimeMillis());
-        getSearchTime(2).setInit(System.currentTimeMillis());
+        getRemoveTime(1).setEnd(System.currentTimeMillis());
+        getRemoveTime(2).setInit(System.currentTimeMillis());
         removeSet(treeSet);
-        getSearchTime(2).setEnd(System.currentTimeMillis());
+        getRemoveTime(2).setEnd(System.currentTimeMillis());
     }
 
     @SuppressWarnings("element-type-mismatch")

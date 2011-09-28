@@ -1,6 +1,6 @@
 package benchmark;
 
-import collections.Collections;
+import collections.CollectionsBenchmark;
 import collections.ListBenchmark;
 import collections.MapBenchmark;
 import collections.SetBenchmark;
@@ -11,10 +11,10 @@ import java.io.IOException;
  * @author geovane
  */
 public class Benchmark {
-    private Collections colls[] = new Collections[3];
-    private Collections lists;
-    private Collections sets;
-    private Collections maps;
+    
+    private CollectionsBenchmark lists;
+    private CollectionsBenchmark sets;
+    private CollectionsBenchmark maps;
     private Long insertTimes[] = new Long[9];
     private Long searchTimes[] = new Long[9];
     private Long removeTimes[] = new Long[9];
@@ -32,15 +32,15 @@ public class Benchmark {
         lists.search();
         sets.search();
         maps.search();
-//        lists.remove();
-//        sets.remove();
-//        maps.remove();
+        lists.remove();
+        sets.remove();
+        maps.remove();
     }
     
     public void calculateTimes() {
         insertTimes = calculateTimes(insertTimes, "insert");
         searchTimes = calculateTimes(searchTimes, "search");
-//        removeTimes = calculateTimes(removeTimes, "remove");
+        removeTimes = calculateTimes(removeTimes, "remove");
     }
     
     public Long[] calculateTimes(Long[] times, String type) {
@@ -59,39 +59,50 @@ public class Benchmark {
     public String toString() {
         String collectionsInsertBench = stringTimes(insertTimes, "insert");
         String collectionsSearchBench = stringTimes(searchTimes, "search");
-//        String collectionsRemoveBench = stringTimes(insertTimes, "remove");
-        return collectionsInsertBench + collectionsSearchBench;// + collectionsRemoveBench;
+        String collectionsRemoveBench = stringTimes(removeTimes, "remove");
+        return collectionsInsertBench + collectionsSearchBench + collectionsRemoveBench;
     }
 
     private String stringTimes(Long[] time, String type) {
-        String collectionsInsertBench = "";
-        collectionsInsertBench += "+--------------------------------------+\n";
-        collectionsInsertBench += "| Collection     |   "+type+" time       |\n";
-        collectionsInsertBench += "+----------------+---------------------+\n";
-        collectionsInsertBench += "  ArrayList      |   " + time[0] + "\n";
-        collectionsInsertBench += "  VectorList     |   " + time[1] + "\n";
-        collectionsInsertBench += "  LinkedList     |   " + time[2] + "\n";
-        collectionsInsertBench += "  HashSet        |   " + time[3] + "\n";
-        collectionsInsertBench += "  LinkedHashSet  |   " + time[4] + "\n";
-        collectionsInsertBench += "  TreeSet        |   " + time[5] + "\n";
-        collectionsInsertBench += "  HahsMap        |   " + time[6] + "\n";
-        collectionsInsertBench += "  LinkedHahsMap  |   " + time[7] + "\n";
-        collectionsInsertBench += "  TreeMap        |   " + time[8] + "\n";
-        collectionsInsertBench += "\n\n";
-        return collectionsInsertBench;
+        String collectionsBench = "";
+        collectionsBench += "+--------------------------------------+\n";
+        collectionsBench += "| Collection     |   "+type+" time       |\n";
+        collectionsBench += "+----------------+---------------------+\n";
+        collectionsBench += "  ArrayList      |   " + time[0] + "\n";
+        collectionsBench += "  VectorList     |   " + time[1] + "\n";
+        collectionsBench += "  LinkedList     |   " + time[2] + "\n";
+        collectionsBench += "  HashSet        |   " + time[3] + "\n";
+        collectionsBench += "  LinkedHashSet  |   " + time[4] + "\n";
+        collectionsBench += "  TreeSet        |   " + time[5] + "\n";
+        collectionsBench += "  HahsMap        |   " + time[6] + "\n";
+        collectionsBench += "  LinkedHahsMap  |   " + time[7] + "\n";
+        collectionsBench += "  TreeMap        |   " + time[8] + "\n";
+//        collectionsBench += "\n";
+        return collectionsBench;
     }
 
-    public Collections getLists() {
+    public CollectionsBenchmark getLists() {
         return lists;
     }
 
-    public Collections getMaps() {
+    public CollectionsBenchmark getMaps() {
         return maps;
     }
 
-    public Collections getSets() {
+    public CollectionsBenchmark getSets() {
         return sets;
     }
 
+    public Long[] getInsertTimes() {
+        return insertTimes;
+    }
+
+    public Long[] getRemoveTimes() {
+        return removeTimes;
+    }
+
+    public Long[] getSearchTimes() {
+        return searchTimes;
+    }
 
 }

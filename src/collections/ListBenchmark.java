@@ -10,7 +10,7 @@ import java.util.Vector;
  *
  * @author geovane
  */
-public class ListBenchmark<E> extends collections.Collections{
+public class ListBenchmark<E> extends collections.CollectionsBenchmark{
 
     private List<E> arrayList;
     private List<E> vectorList;
@@ -61,15 +61,15 @@ public class ListBenchmark<E> extends collections.Collections{
 
     @Override
     public void remove() {
-        getSearchTime(0).setInit(System.currentTimeMillis());
+        getRemoveTime(0).setInit(System.currentTimeMillis());
         removeList(arrayList);
-        getSearchTime(0).setEnd(System.currentTimeMillis());
-        getSearchTime(1).setInit(System.currentTimeMillis());
+        getRemoveTime(0).setEnd(System.currentTimeMillis());
+        getRemoveTime(1).setInit(System.currentTimeMillis());
         removeList(vectorList);
-        getSearchTime(1).setEnd(System.currentTimeMillis());
-        getSearchTime(2).setInit(System.currentTimeMillis());
+        getRemoveTime(1).setEnd(System.currentTimeMillis());
+        getRemoveTime(2).setInit(System.currentTimeMillis());
         removeList(linkedList);
-        getSearchTime(2).setEnd(System.currentTimeMillis());
+        getRemoveTime(2).setEnd(System.currentTimeMillis());
     }
 
     @SuppressWarnings("element-type-mismatch")
