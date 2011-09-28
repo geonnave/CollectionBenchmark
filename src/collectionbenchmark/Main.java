@@ -15,7 +15,7 @@ public class Main {
         Benchmark bm = new Benchmark();
         bm.make();
 
-        bm.calculateInsertTimes();
+        bm.calculateTimes();
         System.out.println(bm);
     }
 

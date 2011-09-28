@@ -32,26 +32,35 @@ public class Benchmark {
         lists.search();
         sets.search();
         maps.search();
-        lists.remove();
-        sets.remove();
-        maps.remove();
+//        lists.remove();
+//        sets.remove();
+//        maps.remove();
     }
-
-    public void calculateInsertTimes() {
+    
+    public void calculateTimes() {
+        insertTimes = calculateTimes(insertTimes, "insert");
+        searchTimes = calculateTimes(searchTimes, "search");
+//        removeTimes = calculateTimes(removeTimes, "remove");
+    }
+    
+    public Long[] calculateTimes(Long[] times, String type) {
         for (int i = 0; i < 9; i++) {
             if (i < 3)
-                insertTimes[i] = lists.getInsertTime(i%3).getDiff();
+                times[i] = lists.getTime(i%3, type).getDiff();
             else if(i < 6)
-                insertTimes[i] = sets.getInsertTime(i%3).getDiff();
+                times[i] = sets.getTime(i%3, type).getDiff();
             else
-                insertTimes[i] = maps.getInsertTime(i%3).getDiff();
+                times[i] = maps.getTime(i%3, type).getDiff();
         }
+        return times;
     }
 
     @Override
     public String toString() {
         String collectionsInsertBench = stringTimes(insertTimes, "insert");
-        return collectionsInsertBench;
+        String collectionsSearchBench = stringTimes(searchTimes, "search");
+//        String collectionsRemoveBench = stringTimes(insertTimes, "remove");
+        return collectionsInsertBench + collectionsSearchBench;// + collectionsRemoveBench;
     }
 
     private String stringTimes(Long[] time, String type) {
@@ -68,6 +77,7 @@ public class Benchmark {
         collectionsInsertBench += "  HahsMap        |   " + time[6] + "\n";
         collectionsInsertBench += "  LinkedHahsMap  |   " + time[7] + "\n";
         collectionsInsertBench += "  TreeMap        |   " + time[8] + "\n";
+        collectionsInsertBench += "\n\n";
         return collectionsInsertBench;
     }
 

@@ -28,6 +28,19 @@ public abstract class Collections<E,T> {
     public abstract void search();
     public abstract void remove();
 
+    public Time getTime(int i, String type) {
+        if (i >= 0 && i < 3) {
+            if (type.equals("insert"))
+                return insertTime[i];
+            else if (type.equals("search"))
+                return searchTime[i];
+            else if (type.equals("remove"))
+                return removeTime[i];
+        }
+        System.out.println("pau");
+        return null;
+    }
+
     public Time getInsertTime(int i) {
         if (i >= 0 && i < 3)
             return insertTime[i];
