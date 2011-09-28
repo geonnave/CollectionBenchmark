@@ -24,17 +24,17 @@ public class ListBenchmark<E> extends collections.Collections{
 
     public void insert() {
         getInsertTime(0).setInit(System.currentTimeMillis());
-        insertColl(arrayList);
+        insertList(arrayList);
         getInsertTime(0).setEnd(System.currentTimeMillis());
         getInsertTime(1).setInit(System.currentTimeMillis());
-        insertColl(vectorList);
+        insertList(vectorList);
         getInsertTime(1).setEnd(System.currentTimeMillis());
         getInsertTime(2).setInit(System.currentTimeMillis());
-        insertColl(linkedList);
+        insertList(linkedList);
         getInsertTime(2).setEnd(System.currentTimeMillis());
     }
 
-    public void insertColl(List<E> list) {
+    private void insertList(List<E> list) {
         for (String value : getValues()) {
             list.add((E) value);
         }
@@ -43,17 +43,17 @@ public class ListBenchmark<E> extends collections.Collections{
     @Override
     public void search() {
         getSearchTime(0).setInit(System.currentTimeMillis());
-        searchColl(arrayList, getValues());
+        searchList(arrayList, getValues());
         getSearchTime(0).setEnd(System.currentTimeMillis());
         getSearchTime(1).setInit(System.currentTimeMillis());
-        searchColl(vectorList, getValues());
+        searchList(vectorList, getValues());
         getSearchTime(1).setEnd(System.currentTimeMillis());
         getSearchTime(2).setInit(System.currentTimeMillis());
-        searchColl(linkedList, getValues());
+        searchList(linkedList, getValues());
         getSearchTime(2).setEnd(System.currentTimeMillis());
     }
 
-    public void searchColl(List<E> list, String[] values) {
+    private void searchList(List<E> list, String[] values) {
         for (String string : values) {
             list.contains((E) string);
         }
@@ -62,18 +62,18 @@ public class ListBenchmark<E> extends collections.Collections{
     @Override
     public void remove() {
         getSearchTime(0).setInit(System.currentTimeMillis());
-        removeColl(arrayList);
+        removeList(arrayList);
         getSearchTime(0).setEnd(System.currentTimeMillis());
         getSearchTime(1).setInit(System.currentTimeMillis());
-        removeColl(vectorList);
+        removeList(vectorList);
         getSearchTime(1).setEnd(System.currentTimeMillis());
         getSearchTime(2).setInit(System.currentTimeMillis());
-        removeColl(linkedList);
+        removeList(linkedList);
         getSearchTime(2).setEnd(System.currentTimeMillis());
     }
 
     @SuppressWarnings("element-type-mismatch")
-    public void removeColl(List<E> list) {
+    private void removeList(List<E> list) {
         for (String value : getValues()) {
             list.remove(value);
         }

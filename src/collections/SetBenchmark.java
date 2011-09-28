@@ -24,17 +24,17 @@ public class SetBenchmark<E> extends collections.Collections {
 
     public void insert() {
         getInsertTime(0).setInit(System.currentTimeMillis());
-        insertColl(hashSet);
+        insertSet(hashSet);
         getInsertTime(0).setEnd(System.currentTimeMillis());
         getInsertTime(1).setInit(System.currentTimeMillis());
-        insertColl(linkedHashSet);
+        insertSet(linkedHashSet);
         getInsertTime(1).setEnd(System.currentTimeMillis());
         getInsertTime(2).setInit(System.currentTimeMillis());
-        insertColl(treeSet);
+        insertSet(treeSet);
         getInsertTime(2).setEnd(System.currentTimeMillis());
     }
 
-    public void insertColl(Set<E> list) {
+    private void insertSet(Set<E> list) {
         for (String value : getValues()) {
             list.add((E) value);
         }
@@ -43,17 +43,17 @@ public class SetBenchmark<E> extends collections.Collections {
     @Override
     public void search() {
         getSearchTime(0).setInit(System.currentTimeMillis());
-        searchColl(hashSet, getValues());
+        searchSet(hashSet, getValues());
         getSearchTime(0).setEnd(System.currentTimeMillis());
         getSearchTime(1).setInit(System.currentTimeMillis());
-        searchColl(linkedHashSet, getValues());
+        searchSet(linkedHashSet, getValues());
         getSearchTime(1).setEnd(System.currentTimeMillis());
         getSearchTime(2).setInit(System.currentTimeMillis());
-        searchColl(treeSet, getValues());
+        searchSet(treeSet, getValues());
         getSearchTime(2).setEnd(System.currentTimeMillis());
     }
 
-    public void searchColl(Set<E> list, String[] values) {
+    private void searchSet(Set<E> list, String[] values) {
         for (String string : values) {
             list.contains((E) string);
         }
@@ -62,18 +62,18 @@ public class SetBenchmark<E> extends collections.Collections {
     @Override
     public void remove() {
         getSearchTime(0).setInit(System.currentTimeMillis());
-        removeColl(hashSet);
+        removeSet(hashSet);
         getSearchTime(0).setEnd(System.currentTimeMillis());
         getSearchTime(1).setInit(System.currentTimeMillis());
-        removeColl(linkedHashSet);
+        removeSet(linkedHashSet);
         getSearchTime(1).setEnd(System.currentTimeMillis());
         getSearchTime(2).setInit(System.currentTimeMillis());
-        removeColl(treeSet);
+        removeSet(treeSet);
         getSearchTime(2).setEnd(System.currentTimeMillis());
     }
 
     @SuppressWarnings("element-type-mismatch")
-    public void removeColl(Set<E> list) {
+    private void removeSet(Set<E> list) {
         for (String value : getValues()) {
             list.remove(value);
         }

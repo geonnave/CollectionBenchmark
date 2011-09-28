@@ -45,9 +45,6 @@ public class OpenFile {
             }
 
         }
-        for (String string : values) {
-            System.out.println(string);
-        }
         return values;
     }
 }

@@ -1,7 +1,6 @@
 package collections;
 
 import java.io.IOException;
-import java.util.Collection;
 import util.OpenFile;
 import util.Time;
 
@@ -11,7 +10,6 @@ import util.Time;
  */
 public abstract class Collections<E,T> {
 
-    private Collection<E> collection[] = new Collection[3];
     private Time insertTime[] = new Time[3];
     private Time searchTime[] = new Time[3];
     private Time removeTime[] = new Time[3];
@@ -23,7 +21,7 @@ public abstract class Collections<E,T> {
             searchTime[i] = new Time();
             removeTime[i] = new Time();
         }
-//        values = new OpenFile().getNumbers();
+        values = new OpenFile().getNumbers();
     }
 
     public abstract void insert();
