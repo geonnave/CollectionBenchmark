@@ -1,7 +1,6 @@
 package util;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -33,16 +32,13 @@ public class OpenFile {
 
     public String[] getNumbers() throws IOException {
         String values[] = new String[10000];
-//        StringBuffer bf[] = new StringBuffer[10000];
         String linha;
         int k = 0;
         boolean fim;
         for (int i = 0; i < 10; i++) {
             fim = false;
             linha = filesBf[i].readLine();
-//            for (int j = 0; j < 1000; j++) {
             while (!(linha == null)) {
-//                System.out.println(linha);
                 values[k] = linha;
                 k++;
                 linha = filesBf[i].readLine();
