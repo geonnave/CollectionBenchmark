@@ -26,10 +26,6 @@ public class OpenFile {
         }
         sFile = new FileReader("src/files/busca_100.dados");
         sFileBf = new BufferedReader(sFile);
-        for (int i = 0; i < files.length; i++) {
-//            files[i].close();
-        }
-//        sFile.close();
     }
 
     public String[] getNumbers() throws IOException {
@@ -40,10 +36,10 @@ public class OpenFile {
         for (int i = 0; i < 10; i++) {
             fim = false;
             linha = filesBf[i].readLine();
-            while (linha != null) {
+            while (linha != null && !linha.equals("")) {
                 values[k] = linha;
-                k++;
                 linha = filesBf[i].readLine();
+                k++;
             }
 
         }
@@ -54,8 +50,8 @@ public class OpenFile {
         String values[] = new String[100];
         String linha = sFileBf.readLine();
         int i = 0;
-        while (linha != null) {
-            values[i] = sFileBf.readLine();
+        while (linha != null && !linha.equals("")) {
+            values[i] = linha;
             linha = sFileBf.readLine();
             i++;
         }

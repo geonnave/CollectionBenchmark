@@ -31,7 +31,7 @@ public class Recorder {
         for (int i = 0; i < 10; i++) {
             try
             {
-                new PrintStream(files[i]).println (Generator.randomNumbers(1000-1, i*1000, (i+1)*1000));
+                new PrintStream(files[i]).println (Generator.randomNumbers(1000, i*1000, (i+1)*1000));
                 files[i].close();
                 if (i == 0) {
                     new PrintStream(sFile).println (Generator.randomNumbers(100, 0, 10000));

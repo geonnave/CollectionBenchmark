@@ -44,13 +44,13 @@ public class CollectionsBenchmark<E> extends benchmark.Benchmark{
         }
     }
 
-    public void search() {
+    private void search() {
         for (String value : searchValues) {
             collection.contains((E) value);
         }
     }
 
-    public void remove() {
+    private void remove() {
         for (String value : values) {
             collection.remove((E) value);
         }
@@ -64,5 +64,14 @@ public class CollectionsBenchmark<E> extends benchmark.Benchmark{
             search();
         else if (select == 3)
             remove();
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (Object object : collection) {
+            s += object + "\n";
+        }
+        return s;
     }
 }

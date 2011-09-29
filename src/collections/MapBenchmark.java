@@ -1,6 +1,5 @@
 package collections;
 
-import java.sql.Time;
 import java.util.Map;
 
 /**
@@ -20,6 +19,10 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
         this.searchValues = searchValues;
     }
 
+    public void setSelect(int select) {
+        this.select = select;
+    }
+
     public void runInsert(){
         select = 1;
         start();
@@ -37,17 +40,19 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
 
     private void insert() {
         for (String value : values) {
-            map.put((E) value, (T) value);
+            if (value != null)
+                map.put((E) value, (T) value);
         }
     }
     
-    public void search() {
+    private void search() {
         for (String value : searchValues) {
-            map.containsValue((T) value);
+            if (value != null)
+                map.containsValue((T) value);
         }
     }
 
-    public void remove() {
+    private void remove() {
         for (String value : values) {
             map.remove((E) value);
         }
@@ -61,5 +66,14 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
             search();
         else if (select == 3)
             remove();
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (Object object : map.values()) {
+            s += object + "\n";
+        }
+        return s;
     }
 }
