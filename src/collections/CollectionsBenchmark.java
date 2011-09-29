@@ -1,76 +1,68 @@
 package collections;
 
-import java.io.IOException;
-import util.OpenFile;
-import util.Time;
+import java.util.Collection;
 
 /**
  *
  * @author geovane
  */
-public abstract class CollectionsBenchmark<E,T> {
+public class CollectionsBenchmark<E> extends benchmark.Benchmark{
 
-    private Time insertTime[] = new Time[3];
-    private Time searchTime[] = new Time[3];
-    private Time removeTime[] = new Time[3];
-    private String values[];
-    
-    public CollectionsBenchmark() throws IOException {
-        for (int i = 0; i < 3; i++) {
-            insertTime[i] = new Time();
-            searchTime[i] = new Time();
-            removeTime[i] = new Time();
+    private Collection<E> collection;
+    private String[] values;
+    private String[] searchValues;
+    private int select = 0;
+
+    public CollectionsBenchmark(Collection<E> collection,  String[] values,  String[] searchValues) {
+        this.collection = collection;
+        this.values = values;
+        this.searchValues = searchValues;
+    }
+
+    public void setSelect(int select) {
+        this.select = select;
+    }
+
+    public void runInsert(){
+        select = 1;
+        start();
+    }
+
+    public void runSearch(){
+        select = 2;
+        start();
+    }
+
+    public void runRemove(){
+        select = 3;
+        start();
+    }
+
+    private void insert() {
+        for (String value : values) {
+            collection.add((E) value);
         }
-        values = new OpenFile().getNumbers();
     }
 
-    public abstract void insert();
-    public abstract void search();
-    public abstract void remove();
-
-    public Time getTime(int i, String type) {
-        if (i >= 0 && i < 3) {
-            if (type.equals("insert"))
-                return insertTime[i];
-            else if (type.equals("search"))
-                return searchTime[i];
-            else if (type.equals("remove"))
-                return removeTime[i];
+    public void search() {
+        for (String value : searchValues) {
+            collection.contains((E) value);
         }
-        return null;
     }
 
-    public Time getInsertTime(int i) {
-        if (i >= 0 && i < 3)
-            return insertTime[i];
-        return null;
+    public void remove() {
+        for (String value : values) {
+            collection.remove((E) value);
+        }
     }
 
-    public void setInsertTime(Time[] insertTime) {
-        this.insertTime = insertTime;
-    }
-
-    public Time getRemoveTime(int i) {
-        if (i >= 0 && i < 3)
-            return removeTime[i];
-        return null;
-    }
-
-    public void setRemoveTime(Time[] removeTime) {
-        this.removeTime = removeTime;
-    }
-
-    public Time getSearchTime(int i) {
-        if (i >= 0 && i < 3)
-            return searchTime[i];
-        return null;
-    }
-
-    public void setSearchTime(Time[] searchTime) {
-        this.searchTime = searchTime;
-    }
-
-    public String[] getValues() {
-        return this.values;
+    @Override
+    public void exec() {
+        if (select == 1)
+            insert();
+        else if (select == 2)
+            search();
+        else if (select == 3)
+            remove();
     }
 }

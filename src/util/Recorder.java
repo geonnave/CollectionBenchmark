@@ -13,19 +13,18 @@ public class Recorder {
     private FileOutputStream files[] = new FileOutputStream[10];
     private FileOutputStream sFile;
 
-    public Recorder() {
+    public Recorder() throws FileNotFoundException {
         for (int i = 0; i < 10; i++) {
             try
             {
                 files[i] = new FileOutputStream("src/files/arquivo" + i +".dados");
-                if (i == 0 )
-                    sFile = new FileOutputStream("src/files/busca_100.dados");
             }
             catch (Exception e)
             {
                 System.err.println(e);
             }
         }
+        sFile = new FileOutputStream("src/files/busca_100.dados");
     }
 
     public void populateFiles() throws FileNotFoundException {

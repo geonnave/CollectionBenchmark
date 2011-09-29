@@ -9,6 +9,14 @@ public class Time {
     private Long init;
     private Long end;
 
+    public void init() {
+        init = System.currentTimeMillis();
+    }
+
+    public void end() {
+        end = System.currentTimeMillis();
+    }
+
     public Long getInit() {
         return init;
     }
