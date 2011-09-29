@@ -32,11 +32,19 @@ public class Time implements Cloneable{
         return end;
     }
 
+    public void setEnd(Long end) {
+        this.end = end;
+    }
+
+    public void setInit(Long init) {
+        this.init = init;
+    }
+
     public Long getDiff() {
         diff = end - init;
         return diff;
     }
-
+    
     public void setDiff(Long diff) {
         this.diff = diff;
     }

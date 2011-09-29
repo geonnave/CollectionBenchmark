@@ -110,8 +110,9 @@ public class Main {
             hashMapRemoveT[i]       = hashMap.runRemove().clone();
             linkedHashMapRemoveT[i] = linkedHashMap.runRemove().clone();
             treeMapRemoveT[i]       = treeMap.runRemove().clone();
-
+            
         }
+
 
         arrayListInsertTime     = average(arrayListInsertT);
         vectorListInsertTime    = average(vectorListInsertT);
@@ -143,18 +144,52 @@ public class Main {
         linkedHashMapRemoveTime = average(linkedHashMapRemoveT);
         treeMapRemoveTime       = average(treeMapRemoveT);
 
-        System.out.println(arrayListSearchTime);
+        
+
+        System.out.println("------INSERT TIME--------");
+        System.out.println("arrayList       "+arrayListInsertTime.getDiff());
+        System.out.println("vectorList      "+vectorListInsertTime.getDiff());
+        System.out.println("linkedList      "+linkedListInsertTime.getDiff());
+        System.out.println("hashSet         "+hashSetInsertTime.getDiff());
+        System.out.println("linkedHashSet   "+linkedHashSetInsertTime.getDiff());
+        System.out.println("treeSet         "+treeSetInsertTime.getDiff());
+        System.out.println("hashMap         "+hashMapInsertTime.getDiff());
+        System.out.println("linkedHashMap   "+linkedHashMapInsertTime.getDiff());
+        System.out.println("treeMap         "+treeMapInsertTime.getDiff());
+
+        System.out.println("------SEARCH TIME--------");
+        System.out.println("arrayList       "+arrayListSearchTime.getDiff());
+        System.out.println("vectorList      "+vectorListSearchTime.getDiff());
+        System.out.println("linkedList      "+linkedListSearchTime.getDiff());
+        System.out.println("hashSet         "+hashSetSearchTime.getDiff());
+        System.out.println("linkedHashSet   "+linkedHashSetSearchTime.getDiff());
+        System.out.println("treeSet         "+treeSetSearchTime.getDiff());
+        System.out.println("hashMap         "+hashMapSearchTime.getDiff());
+        System.out.println("linkedHashMap   "+linkedHashMapSearchTime.getDiff());
+        System.out.println("treeMap         "+treeMapSearchTime.getDiff());
+
+        System.out.println("------REMOVE TIME--------");
+        System.out.println("arrayList       "+arrayListRemoveTime.getDiff());
+        System.out.println("vectorList      "+vectorListRemoveTime.getDiff());
+        System.out.println("linkedList      "+linkedListRemoveTime.getDiff());
+        System.out.println("hashSet         "+hashSetRemoveTime.getDiff());
+        System.out.println("linkedHashSet   "+linkedHashSetRemoveTime.getDiff());
+        System.out.println("treeSet         "+treeSetRemoveTime.getDiff());
+        System.out.println("hashMap         "+hashMapRemoveTime.getDiff());
+        System.out.println("linkedHashMap   "+linkedHashMapRemoveTime.getDiff());
+        System.out.println("treeMap         "+treeMapRemoveTime.getDiff());
 
     }
 
     public static Time average(Time[] time) {
         Time average = new Time();
-        Long currentTimeMillis = new Long(0);
+        Long init = new Long(0), end = new Long(0);
         for (int i = 0; i < time.length; i++) {
-            currentTimeMillis += time[i].getDiff();
+            init += time[i].getInit();
+            end += time[i].getEnd();
         }
-        Long len = new Long(time.length);
-        average.setDiff(currentTimeMillis/len);
+        average.setEnd(end /= time.length);
+        average.setInit(init /= time.length);
         return average;
     }
 
