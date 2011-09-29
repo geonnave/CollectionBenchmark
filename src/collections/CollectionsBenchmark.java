@@ -1,6 +1,7 @@
 package collections;
 
 import java.util.Collection;
+import util.Time;
 
 /**
  *
@@ -23,19 +24,22 @@ public class CollectionsBenchmark<E> extends benchmark.Benchmark{
         this.select = select;
     }
 
-    public void runInsert(){
+    public Time runInsert(){
         select = 1;
         start();
+        return getTime();
     }
 
-    public void runSearch(){
+    public Time runSearch(){
         select = 2;
         start();
+        return getTime();
     }
 
-    public void runRemove(){
+    public Time runRemove(){
         select = 3;
         start();
+        return getTime();
     }
 
     private void insert() {

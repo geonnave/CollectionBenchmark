@@ -1,6 +1,7 @@
 package collections;
 
 import java.util.Map;
+import util.Time;
 
 /**
  *
@@ -23,32 +24,33 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
         this.select = select;
     }
 
-    public void runInsert(){
+    public Time runInsert(){
         select = 1;
         start();
+        return getTime();
     }
 
-    public void runSearch(){
+    public Time runSearch(){
         select = 2;
         start();
+        return getTime();
     }
 
-    public void runRemove(){
+    public Time runRemove(){
         select = 3;
         start();
+        return getTime();
     }
 
     private void insert() {
         for (String value : values) {
-            if (value != null)
-                map.put((E) value, (T) value);
+            map.put((E) value, (T) value);
         }
     }
     
     private void search() {
         for (String value : searchValues) {
-            if (value != null)
-                map.containsValue((T) value);
+            map.containsValue((T) value);
         }
     }
 
