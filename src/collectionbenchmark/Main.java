@@ -1,6 +1,5 @@
 package collectionbenchmark;
 
-import benchmark.Benchmark;
 import collections.CollectionsBenchmark;
 import collections.MapBenchmark;
 import java.io.IOException;
