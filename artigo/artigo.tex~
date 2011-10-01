@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+
+\usepackage[portuges]{babel}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{bold-extra}
+\usepackage{minted} % colorir códigos fontes fontes (necessário a opçào para compilação -shel-scape)
+
+% Caminhos das Imagens
+\graphicspath{{images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{commands/commands}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sloppy
+
+\input{texs/01-title}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\input{texs/02-abstract}
+\input{texs/03-body}
+\input{texs/99-references}
+
+\end{document}

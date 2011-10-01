@@ -144,13 +144,13 @@ public class Main {
         linkedHashMapRemoveTime = average(linkedHashMapRemoveT);
         treeMapRemoveTime       = average(treeMapRemoveT);
 
-        new FileOutputStream("src/outfiles/list_clock_file.dat");
-        new FileOutputStream("src/outfiles/set_clock_file.dat");
-        new FileOutputStream("src/outfiles/map_clock_file.dat");
+        new FileOutputStream("src/outfiles/list_clock.dat");
+        new FileOutputStream("src/outfiles/set_clock.dat");
+        new FileOutputStream("src/outfiles/map_clock.dat");
 
-        PrintStream listClockPs = new PrintStream("src/outfiles/list_clock_file.dat");
-        PrintStream setClockPs = new PrintStream("src/outfiles/set_clock_file.dat");
-        PrintStream mapClockPs = new PrintStream("src/outfiles/map_clock_file.dat");
+        PrintStream listClockPs = new PrintStream("src/outfiles/list_clock.dat");
+        PrintStream setClockPs = new PrintStream("src/outfiles/set_clock.dat");
+        PrintStream mapClockPs = new PrintStream("src/outfiles/map_clock.dat");
 
         listClockPs.print("Insert\t"+arrayListInsertTime.getClockDiff()+"\t"+vectorListInsertTime.getClockDiff()+"\t"+linkedListInsertTime.getClockDiff()+"\n");
         listClockPs.print("Search\t"+arrayListSearchTime.getClockDiff()+"\t"+vectorListSearchTime.getClockDiff()+"\t"+linkedListSearchTime.getClockDiff()+"\n");
@@ -165,13 +165,13 @@ public class Main {
         mapClockPs.print("Remove\t"+hashMapRemoveTime.getClockDiff()+"\t"+linkedHashMapRemoveTime.getClockDiff()+"\t"+treeMapRemoveTime.getClockDiff()+"\n");
 
 
-        new FileOutputStream("src/outfiles/list_cpu_file.dat");
-        new FileOutputStream("src/outfiles/set_cpu_file.dat");
-        new FileOutputStream("src/outfiles/map_cpu_file.dat");
+        new FileOutputStream("src/outfiles/list_cpu.dat");
+        new FileOutputStream("src/outfiles/set_cpu.dat");
+        new FileOutputStream("src/outfiles/map_cpu.dat");
 
-        PrintStream listCpuPs = new PrintStream("src/outfiles/list_cpu_file.dat");
-        PrintStream setCpuPs = new PrintStream("src/outfiles/set_cpu_file.dat");
-        PrintStream mapCpuPs = new PrintStream("src/outfiles/map_cpu_file.dat");
+        PrintStream listCpuPs = new PrintStream("src/outfiles/list_cpu.dat");
+        PrintStream setCpuPs = new PrintStream("src/outfiles/set_cpu.dat");
+        PrintStream mapCpuPs = new PrintStream("src/outfiles/map_cpu.dat");
 
         listCpuPs.print("Insert\t"+arrayListInsertTime.getCpuDiff()+"\t"+vectorListInsertTime.getCpuDiff()+"\t"+linkedListInsertTime.getCpuDiff()+"\n");
         listCpuPs.print("Search\t"+arrayListSearchTime.getCpuDiff()+"\t"+vectorListSearchTime.getCpuDiff()+"\t"+linkedListSearchTime.getCpuDiff()+"\n");
@@ -185,6 +185,20 @@ public class Main {
         mapCpuPs.print("Search\t"+hashMapSearchTime.getCpuDiff()+"\t"+linkedHashMapSearchTime.getCpuDiff()+"\t"+treeMapSearchTime.getCpuDiff()+"\n");
         mapCpuPs.print("Remove\t"+hashMapRemoveTime.getCpuDiff()+"\t"+linkedHashMapRemoveTime.getCpuDiff()+"\t"+treeMapRemoveTime.getCpuDiff()+"\n");
 
+        System.out.println("---LIST INSERT TIME----");
+        System.out.println("arraylist \t" +arrayListInsertTime);
+        System.out.println("vector    \t" +vectorListInsertTime);
+        System.out.println("linkedlist\t" +linkedListInsertTime);
+
+        System.out.println("---LIST SEARCH TIME----");
+        System.out.println("arraylist \t" +arrayListSearchTime);
+        System.out.println("vector    \t" +vectorListSearchTime);
+        System.out.println("linkedlist\t" +linkedListSearchTime);
+
+        System.out.println("---LIST REMOVE TIME----");
+        System.out.println("arraylist \t" +arrayListRemoveTime);
+        System.out.println("vector    \t" +vectorListRemoveTime);
+        System.out.println("linkedlist\t" +linkedListRemoveTime);
     }
 
     public static Time average(Time[] time) {
