@@ -11,10 +11,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 import util.OpenFile;
+import util.Recorder;
 
 /**
  *
@@ -24,8 +26,11 @@ public class Main {
 
     @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(String[] args) throws IOException {
-        final Integer REPEAT = 10;
-//        new Recorder().populateFiles();
+//        System.out.println("Digite o numero de vezes");
+//        Scanner sc = new Scanner(System.in);
+//        final Integer REPEAT = sc.nextInt();
+        final Integer REPEAT = 50;
+        new Recorder().populateFiles();
         OpenFile op = new OpenFile();
         String values[] = op.getNumbers();
         String searchValues[] = op.getSearchNumbers();

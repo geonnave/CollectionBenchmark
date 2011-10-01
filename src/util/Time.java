@@ -23,17 +23,17 @@ public class Time implements Cloneable{
 
     public void init() {
         clockInit = System.currentTimeMillis();
-        cpuInit = getCpuTime();
+        cpuInit = getCpuTime()/1000000;
     }
 
     public void end() {
         clockEnd = System.currentTimeMillis();
-        cpuEnd = getCpuTime();
+        cpuEnd = getCpuTime()/1000000;
     }
 
     public Long getCpuTime() {
         ThreadMXBean bean = ManagementFactory.getThreadMXBean();
-        return bean.isCurrentThreadCpuTimeSupported() ? bean.getCurrentThreadCpuTime()/1000000 : 0L;
+        return bean.isCurrentThreadCpuTimeSupported() ? bean.getCurrentThreadCpuTime() : 0L;
     }
 
     public Long getClockDiff() {
