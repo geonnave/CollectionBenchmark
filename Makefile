@@ -10,5 +10,7 @@ exec:
 	java -cp build collectionbenchmark.Main 
 
 generate_graphics:
-	gedit sets_gnuplots &
-	gnuplot
+	cd src/outfiles && make
+
+generate_article:
+	cd artigo && make

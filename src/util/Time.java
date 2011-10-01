@@ -33,7 +33,7 @@ public class Time implements Cloneable{
 
     public Long getCpuTime() {
         ThreadMXBean bean = ManagementFactory.getThreadMXBean();
-        return bean.isCurrentThreadCpuTimeSupported() ? bean.getCurrentThreadCpuTime() : 0L;
+        return bean.isCurrentThreadCpuTimeSupported() ? bean.getCurrentThreadCpuTime()/1000000 : 0L;
     }
 
     public Long getClockDiff() {
