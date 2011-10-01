@@ -18,13 +18,13 @@ public class OpenFile {
         FileReader sFile;
         for (int i = 0; i < 10; i++) {
             try {
-                files[i] = new FileReader("src/files/arquivo" + i + ".dados");
+                files[i] = new FileReader("src/infiles/arquivo" + i + ".dados");
                 filesBf[i] = new BufferedReader(files[i]);
             } catch (Exception e) {
                 System.err.println(e);
             }
         }
-        sFile = new FileReader("src/files/busca_100.dados");
+        sFile = new FileReader("src/infiles/busca_100.dados");
         sFileBf = new BufferedReader(sFile);
     }
 

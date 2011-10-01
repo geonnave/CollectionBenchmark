@@ -17,14 +17,14 @@ public class Recorder {
         for (int i = 0; i < 10; i++) {
             try
             {
-                files[i] = new FileOutputStream("src/files/arquivo" + i +".dados");
+                files[i] = new FileOutputStream("src/infiles/arquivo" + i +".dados");
             }
             catch (Exception e)
             {
                 System.err.println(e);
             }
         }
-        sFile = new FileOutputStream("src/files/busca_100.dados");
+        sFile = new FileOutputStream("src/infiles/busca_100.dados");
     }
 
     public void populateFiles() throws FileNotFoundException {

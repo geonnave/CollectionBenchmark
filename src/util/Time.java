@@ -1,65 +1,94 @@
 package util;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+
 /**
  *
  * @author geovane
  */
 public class Time implements Cloneable{
 
-    private Long init;
-    private Long end;
-    private Long diff;
+    private Long clockInit;
+    private Long clockEnd;
+    private Long cpuInit;
+    private Long cpuEnd;
 
     public Time() {
-        init = new Long(0);
-        end = new Long(0);
-        diff = new Long(0);
+        clockInit = new Long(0);
+        clockEnd = new Long(0);
+        cpuInit = new Long(0);
+        cpuEnd = new Long(0);
     }
 
     public void init() {
-        init = System.currentTimeMillis();
+        clockInit = System.currentTimeMillis();
+        cpuInit = getCpuTime();
     }
 
     public void end() {
-        end = System.currentTimeMillis();
+        clockEnd = System.currentTimeMillis();
+        cpuEnd = getCpuTime();
     }
 
-    public Long getInit() {
-        return init;
+    public Long getCpuTime() {
+        ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+        return bean.isCurrentThreadCpuTimeSupported() ? bean.getCurrentThreadCpuTime() : 0L;
     }
 
-    public Long getEnd() {
-        return end;
+    public Long getClockDiff() {
+        return clockEnd - clockInit;
     }
 
-    public void setEnd(Long end) {
-        this.end = end;
-    }
-
-    public void setInit(Long init) {
-        this.init = init;
-    }
-
-    public Long getDiff() {
-        diff = end - init;
-        return diff;
+    public Long getCpuDiff() {
+        return cpuEnd - cpuInit;
     }
     
-    public void setDiff(Long diff) {
-        this.diff = diff;
-    }
-
     @Override
     public String toString() {
-        return "init: "+getInit()+"\tend: " +getEnd()+"\tdiff: "+getDiff();
+        return "clockTime: "+getClockDiff()+" cpuTime:"+getCpuDiff();
     }
 
     @Override
     public Time clone(){
         Time clone = new Time();
-        clone.init = this.init;
-        clone.end  = this.end;
-        clone.diff = this.diff;
+        clone.clockInit = this.clockInit;
+        clone.clockEnd  = this.clockEnd;
+        clone.cpuInit = this.cpuInit;
+        clone.cpuEnd  = this.cpuEnd;
         return clone;
     }
+    
+    public Long getClockInit() {
+        return clockInit;
+    }
+
+    public Long getClockEnd() {
+        return clockEnd;
+    }
+
+    public void setClockEnd(Long end) {
+        this.clockEnd = end;
+    }
+
+    public void setClockInit(Long init) {
+        this.clockInit = init;
+    }
+
+    public Long getCpuEnd() {
+        return cpuEnd;
+    }
+
+    public void setCpuEnd(Long cpuEnd) {
+        this.cpuEnd = cpuEnd;
+    }
+
+    public Long getCpuInit() {
+        return cpuInit;
+    }
+
+    public void setCpuInit(Long cpuInit) {
+        this.cpuInit = cpuInit;
+    }
+
 }
