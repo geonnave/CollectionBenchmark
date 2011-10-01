@@ -14,9 +14,7 @@ import java.util.LinkedHashSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
-import sun.net.www.http.ChunkedOutputStream;
 import util.OpenFile;
-import util.Recorder;
 
 /**
  *
@@ -186,7 +184,6 @@ public class Main {
         mapCpuPs.print("Insert\t"+hashMapInsertTime.getCpuDiff()+"\t"+linkedHashMapInsertTime.getCpuDiff()+"\t"+treeMapInsertTime.getCpuDiff()+"\n");
         mapCpuPs.print("Search\t"+hashMapSearchTime.getCpuDiff()+"\t"+linkedHashMapSearchTime.getCpuDiff()+"\t"+treeMapSearchTime.getCpuDiff()+"\n");
         mapCpuPs.print("Remove\t"+hashMapRemoveTime.getCpuDiff()+"\t"+linkedHashMapRemoveTime.getCpuDiff()+"\t"+treeMapRemoveTime.getCpuDiff()+"\n");
-
 
     }
 
