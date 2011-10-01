@@ -1,0 +1,25 @@
+\section{As Interfaces} \label{sec:interfaces}
+	Interfaces formam o conjunto de interfaces disponíveis, onde Collections e todas as classes concretas irão derivar de uma ou mais interfaces.
+	List e Set são um tipo de Collection, cada um com suas particularidades. Já um Map não é do mesmo tipo dos demais mas também manipula coleções de elementos.
+	\subsection{List}
+		Representa uma coleção ordenada (ordem de inserção) e que permite duplicatas, suas implementações são:
+		\begin{itemize}
+			\item[ArrayList:] Pode ser visto como um array (vetor) porém dinâmico. Ele é organizado pelo índice, ou seja, temos alguma garantia quanto a ordem que encontraremos os elementos.
+			\item[Vector:] É basicamente um ArrayList, no entanto seus métodos são sincronizados o que significa que o acesso por vários processos simultaneamente é coordenado.
+			\item[LinkedList:] Muito similar as duas coleções vistas anteriormente, porém todos os elementos são ligados entre si. Seu desempenho é superior aos do ArrayList e Vector quando necessitamos inserir elementos no início da coleção, no entanto ao precisar obter algum elemento pelo índice o desempenho é inferior.
+		\end{itemize}
+	\subsection{Set}
+		Representa uma coleção que não pode conter duplicatas, implementa uma abstração dos conjuntos matemáticos, também contendo três implementações:
+		\begin{itemize}
+			\item[HashSet:] Caracteriza-se por não aceitar duplicatas, característica derivada do Set, ser uma coleção desordenada e desorganizada, isto é, não há nenhuma garantia quanto a ordem que os elementos serão percorridos.
+			\item[LinkedHashSet:] É uma versão organizada do HashSet, ou seja, existe algum tipo de seqüência não-aleatória durante a iteração dos elementos, neste caso a ordem de inserção é respeitada. Por ser um Set, o LinkedHashSet não aceita duplicatas. Deve-se utilizar o LinkedHashSet ao invés do HashSet quando a ordem de iteração dos elementos é importante.
+			\item[treeSet:] É um Set ordenado e como tal não aceita duplicatas, no TreeSet os elementos inseridos serão percorridos de acordo com sua ordem natural e de forma ascendente.
+		\end{itemize}
+	\subsection{Map}
+		Implementa objetos que armazenam um elemento e o removem através da sua chave, não aceitam chaves duplicadas. Suas implementações são:
+		\begin{itemize}
+			\item[HashMap:] É um Map desorganizado, isto é, a ordem de iteração dos elementos é desconhecida, e desordenado.
+			\item[LinkedHashMap:] É muito similar ao LinkedHashSet, porém esta é a versão que implementa a interface Map, logo ao armazenar os objetos é necessária uma chave. Ao contrário do HashMap, o LinkedHashMap é organizado, o que significa dizer que durante a iteração dos elementos ele respeita a ordem que estes foram inseridos na coleção.
+			\item[TreeMap:] ordena seus elementos através da chave por alguma regra. Quando esta ordem não é definida pela interface Comparable ou por um objeto Comparator1 o TreeMap busca a ordem natural dos elementos.
+		\end{itemize}
+

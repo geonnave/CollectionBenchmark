@@ -1,4 +1,4 @@
-install: rm_pdf copy_styles make_bibliography make_pdf clean
+install: rm_pdf copy_styles make_pdf clean
 	evince artigo.pdf &
 
 make_pdf:
