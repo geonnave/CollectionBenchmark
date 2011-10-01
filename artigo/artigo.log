@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.3)  1 OCT 2011 16:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.3)  1 OCT 2011 16:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -746,37 +746,24 @@ File: images/fig2.jpg Graphic file (type jpg)
  <use images/fig2.jpg>
 <images/table.jpg, id=13, 365.2044pt x 217.2918pt>
 File: images/table.jpg Graphic file (type jpg)
- <use images/table.jpg>
-
-LaTeX Warning: Citation `knuth:84' on page 2 undefined on input line 99.
-
-
-LaTeX Warning: Citation `boulic:91' on page 2 undefined on input line 100.
-
-
-LaTeX Warning: Citation `smith:99' on page 2 undefined on input line 100.
-
-) [2] [3 <./images/fig1.jpg> <./images/fig2.jpg>] [4 <./images/table.jpg>]
-(./artigo.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ <use images/table.jpg>)
+[2] [3 <./images/fig1.jpg> <./images/fig2.jpg>] [4 <./images/table.jpg>]
+(./artigo.aux) ) 
 Here is how much of TeX's memory you used:
- 4201 strings out of 493848
- 53530 string characters out of 1152824
+ 4198 strings out of 493848
+ 53499 string characters out of 1152824
  105490 words of memory out of 3000000
- 7359 multiletter control sequences out of 15000+50000
+ 7356 multiletter control sequences out of 15000+50000
  55133 words of font info for 45 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  30i,8n,27p,251b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx
-10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on artigo.pdf (4 pages, 296929 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texm
+f/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on artigo.pdf (4 pages, 296327 bytes).
 PDF statistics:
  48 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

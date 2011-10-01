@@ -48,6 +48,5 @@ plot "./map_cpu.dat" using 2 t "hashMap", ''  using 3 t "linkedHashMap", '' usin
 set output "map_cpu_graph.png"
 replot
 
-
 exit
 
