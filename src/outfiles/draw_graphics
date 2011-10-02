@@ -5,47 +5,47 @@ set style fill solid 1.00 border -1
 set style data histogram
 set style histogram cluster gap 1
 set yrange [0:80]
-set ylabel "time in milliseconds"
+set ylabel 'time in milliseconds'
 set terminal png
 
 #now lets go make the graphs!
 #first we have the graphs for cpu times:
 
-set title "Insert, Search and Remove clock times of List Interface"
-plot "./list_clock.dat" using 2 t "ArrayList", ''  using 3 t "Vector", '' using 4:xtic(1) t "LinkedList" 
-set output "list_clock_graph.png"
+set title 'Insert, Search and Remove clock times of List Interface'
+plot './list_clock.dat' using 2 t 'ArrayList', ''  using 3 t 'Vector', '' using 4:xtic(1) t 'LinkedList' 
+set output 'list_clock_graph.png'
 replot
 
 
-set title "Insert, Search and Remove clock times of Set Interface"
-plot "./set_clock.dat" using 2 t "hashSet", ''  using 3 t "linkedHashSet", '' using 4:xtic(1) t "treeSet" 
-set output "set_clock_graph.png"
+set title 'Insert, Search and Remove clock times of Set Interface'
+plot './set_clock.dat' using 2 t 'hashSet', ''  using 3 t 'linkedHashSet', '' using 4:xtic(1) t 'treeSet' 
+set output 'set_clock_graph.png'
 replot
 
 
-set title "Insert, Search and Remove clock times of Map Interface"
-plot "./map_clock.dat" using 2 t "hashMap", ''  using 3 t "linkedHashMap", '' using 4:xtic(1) t "treeMap" 
-set output "map_clock_graph.png"
+set title 'Insert, Search and Remove clock times of Map Interface'
+plot './map_clock.dat' using 2 t 'hashMap', ''  using 3 t 'linkedHashMap', '' using 4:xtic(1) t 'treeMap' 
+set output 'map_clock_graph.png'
 replot
 
 
 #and then, the cpu times:
 
-set title "Insert, Search and Remove cpu times of List Interface"
-plot "./list_cpu.dat" using 2 t "ArrayList", ''  using 3 t "Vector", '' using 4:xtic(1) t "LinkedList" 
-set output "list_cpu_graph.png"
+set title 'Insert, Search and Remove cpu times of List Interface'
+plot './list_cpu.dat' using 2 t 'ArrayList', ''  using 3 t 'Vector', '' using 4:xtic(1) t 'LinkedList' 
+set output 'list_cpu_graph.png'
 replot
 
 
-set title "Insert, Search and Remove cpu times of Set Interface"
-plot "./set_cpu.dat" using 2 t "hashSet", ''  using 3 t "linkedHashSet", '' using 4:xtic(1) t "treeSet" 
-set output "set_cpu_graph.png"
+set title 'Insert, Search and Remove cpu times of Set Interface'
+plot './set_cpu.dat' using 2 t 'hashSet', ''  using 3 t 'linkedHashSet', '' using 4:xtic(1) t 'treeSet' 
+set output 'set_cpu_graph.png'
 replot
 
 
-set title "Insert, Search and Remove cpu times of Map Interface"
-plot "./map_cpu.dat" using 2 t "hashMap", ''  using 3 t "linkedHashMap", '' using 4:xtic(1) t "treeMap" 
-set output "map_cpu_graph.png"
+set title 'Insert, Search and Remove cpu times of Map Interface'
+plot './map_cpu.dat' using 2 t 'hashMap', ''  using 3 t 'linkedHashMap', '' using 4:xtic(1) t 'treeMap' 
+set output 'map_cpu_graph.png'
 replot
 
 exit

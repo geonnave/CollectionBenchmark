@@ -29,7 +29,7 @@ public class Main {
 //        System.out.println("Digite o numero de vezes");
 //        Scanner sc = new Scanner(System.in);
 //        final Integer REPEAT = sc.nextInt();
-        final Integer REPEAT = 50;
+        final Integer REPEAT = 10;
         new Recorder().populateFiles();
         OpenFile op = new OpenFile();
         String values[] = op.getNumbers();

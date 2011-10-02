@@ -1,5 +1,4 @@
 run: generate_graphics
 
 generate_graphics:
-	gedit draw_graphics &
-	gnuplot
+	ruby draw_graphics.rb
