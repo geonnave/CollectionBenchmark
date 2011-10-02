@@ -8,7 +8,7 @@ set yrange [0:80]
 set ylabel "time in milliseconds"
 set terminal png
 
-#now lets make the graphs!
+#now lets go make the graphs!
 #first we have the graphs for cpu times:
 
 set title "Insert, Search and Remove clock times of List Interface"

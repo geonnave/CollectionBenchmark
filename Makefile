@@ -1,4 +1,4 @@
-run: clean compile exec generate_graphics copy_images generate_article
+run:  generate_article
     #clean compile exec generate_graphics copy_images
 without_compile: generate_article generate_graphics copy_images
 
