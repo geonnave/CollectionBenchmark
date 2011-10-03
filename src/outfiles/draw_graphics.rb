@@ -1,4 +1,4 @@
-
+	
 IO.popen("gnuplot", "w+") do |pipe|
 	pipe.puts "reset"
 	pipe.puts "set boxwidth 0.75 absolute"
