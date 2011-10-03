@@ -78,4 +78,14 @@ public class CollectionsBenchmark<E> extends benchmark.Benchmark{
         }
         return s;
     }
+
+    public void setSearchValues(String[] searchValues) {
+        this.searchValues = searchValues;
+    }
+
+    public void setValues(String[] values) {
+        this.values = values;
+    }
+
+    
 }

@@ -31,28 +31,18 @@ public class Main {
 //        final Integer REPEAT = sc.nextInt();
         final Integer REPEAT = 10;
         new Recorder().populateFiles();
-        OpenFile op = new OpenFile();
-        String values[] = op.getNumbers();
-        String searchValues[] = op.getSearchNumbers();
+        String values[] = new OpenFile().getNumbers();
+        String searchValues[] = new OpenFile().getSearchNumbers();
 
-        CollectionsBenchmark arrayList      =
-                new CollectionsBenchmark(new ArrayList(), values, searchValues);
-        CollectionsBenchmark vectorList     =
-                new CollectionsBenchmark(new Vector(), values, searchValues);
-        CollectionsBenchmark linkedList     =
-                new CollectionsBenchmark(new ArrayList(), values, searchValues);
-        CollectionsBenchmark hashSet        =
-                new CollectionsBenchmark(new HashSet(), values, searchValues);
-        CollectionsBenchmark linkedHashSet  =
-                new CollectionsBenchmark(new LinkedHashSet(), values, searchValues);
-        CollectionsBenchmark treeSet        =
-                new CollectionsBenchmark(new TreeSet(), values, searchValues);
-        MapBenchmark hashMap                =
-                new MapBenchmark(new HashMap(), values, searchValues);
-        MapBenchmark linkedHashMap          =
-                new MapBenchmark(new LinkedHashMap(), values, searchValues);
-        MapBenchmark treeMap                =
-                new MapBenchmark(new TreeMap(), values, searchValues);
+        CollectionsBenchmark    arrayList      = new CollectionsBenchmark(new ArrayList(), values, searchValues);
+        CollectionsBenchmark    vectorList     = new CollectionsBenchmark(new Vector(), values, searchValues);
+        CollectionsBenchmark    linkedList     = new CollectionsBenchmark(new ArrayList(), values, searchValues);
+        CollectionsBenchmark    hashSet        = new CollectionsBenchmark(new HashSet(), values, searchValues);
+        CollectionsBenchmark    linkedHashSet  = new CollectionsBenchmark(new LinkedHashSet(), values, searchValues);
+        CollectionsBenchmark    treeSet        = new CollectionsBenchmark(new TreeSet(), values, searchValues);
+        MapBenchmark            hashMap        = new MapBenchmark(new HashMap(), values, searchValues);
+        MapBenchmark            linkedHashMap  = new MapBenchmark(new LinkedHashMap(), values, searchValues);
+        MapBenchmark            treeMap        = new MapBenchmark(new TreeMap(), values, searchValues);
 
         Time arrayListInsertT[]     = new Time[REPEAT], arrayListInsertTime;
         Time vectorListInsertT[]    = new Time[REPEAT], vectorListInsertTime;
@@ -116,7 +106,20 @@ public class Main {
             hashMapRemoveT[i]       = hashMap.runRemove().clone();
             linkedHashMapRemoveT[i] = linkedHashMap.runRemove().clone();
             treeMapRemoveT[i]       = treeMap.runRemove().clone();
-            
+
+            new Recorder().populateFiles();
+            values = new OpenFile().getNumbers();
+            searchValues = new OpenFile().getSearchNumbers();
+
+            arrayList    .setValues(values);
+            vectorList   .setValues(values);
+            linkedList   .setValues(values);
+            hashSet      .setValues(values);
+            linkedHashSet.setValues(values);
+            treeSet      .setValues(values);
+            hashMap      .setValues(values);
+            linkedHashMap.setValues(values);
+            treeMap      .setValues(values);
         }
 
         arrayListInsertTime     = average(arrayListInsertT);
@@ -154,8 +157,8 @@ public class Main {
         new FileOutputStream("src/outfiles/map_clock.dat");
 
         PrintStream listClockPs = new PrintStream("src/outfiles/list_clock.dat");
-        PrintStream setClockPs = new PrintStream("src/outfiles/set_clock.dat");
-        PrintStream mapClockPs = new PrintStream("src/outfiles/map_clock.dat");
+        PrintStream setClockPs  = new PrintStream("src/outfiles/set_clock.dat");
+        PrintStream mapClockPs  = new PrintStream("src/outfiles/map_clock.dat");
 
         listClockPs.print("Insert\t"+arrayListInsertTime.getClockDiff()+"\t"+vectorListInsertTime.getClockDiff()+"\t"+linkedListInsertTime.getClockDiff()+"\n");
         listClockPs.print("Search\t"+arrayListSearchTime.getClockDiff()+"\t"+vectorListSearchTime.getClockDiff()+"\t"+linkedListSearchTime.getClockDiff()+"\n");
@@ -175,8 +178,8 @@ public class Main {
         new FileOutputStream("src/outfiles/map_cpu.dat");
 
         PrintStream listCpuPs = new PrintStream("src/outfiles/list_cpu.dat");
-        PrintStream setCpuPs = new PrintStream("src/outfiles/set_cpu.dat");
-        PrintStream mapCpuPs = new PrintStream("src/outfiles/map_cpu.dat");
+        PrintStream setCpuPs  = new PrintStream("src/outfiles/set_cpu.dat");
+        PrintStream mapCpuPs  = new PrintStream("src/outfiles/map_cpu.dat");
 
         listCpuPs.print("Insert\t"+arrayListInsertTime.getCpuDiff()+"\t"+vectorListInsertTime.getCpuDiff()+"\t"+linkedListInsertTime.getCpuDiff()+"\n");
         listCpuPs.print("Search\t"+arrayListSearchTime.getCpuDiff()+"\t"+vectorListSearchTime.getCpuDiff()+"\t"+linkedListSearchTime.getCpuDiff()+"\n");
@@ -210,10 +213,10 @@ public class Main {
         Time average = new Time();
         Long cInit = new Long(0), cEnd = new Long(0), cpuInit = new Long(0), cpuEnd = new Long(0);
         for (int i = 0; i < time.length; i++) {
-            cInit += time[i].getClockInit();
-            cEnd += time[i].getClockEnd();
+            cInit   += time[i].getClockInit();
+            cEnd    += time[i].getClockEnd();
             cpuInit += time[i].getCpuInit();
-            cpuEnd += time[i].getCpuEnd();
+            cpuEnd  += time[i].getCpuEnd();
         }
         average.setClockEnd(cEnd /= time.length);
         average.setClockInit(cInit /= time.length);

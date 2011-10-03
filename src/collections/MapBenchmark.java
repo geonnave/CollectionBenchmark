@@ -12,12 +12,13 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
     private Map<E, T> map;
     private String[] values;
     private String[] searchValues;
-    private int select = 0;
+    private int select;
     
     public MapBenchmark(Map<E, T> map,  String[] values,  String[] searchValues) {
         this.map = map;
         this.values = values;
         this.searchValues = searchValues;
+        this.select = 0;
     }
 
     public void setSelect(int select) {
@@ -78,4 +79,14 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
         }
         return s;
     }
+
+    public void setSearchValues(String[] searchValues) {
+        this.searchValues = searchValues;
+    }
+
+    public void setValues(String[] values) {
+        this.values = values;
+    }
+
+    
 }
