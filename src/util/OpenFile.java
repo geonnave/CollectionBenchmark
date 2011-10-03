@@ -9,27 +9,24 @@ import java.io.IOException;
  * @author geovane
  */
 public class OpenFile {
-
+    private Integer quantity;
     private BufferedReader filesBf[] = new BufferedReader[10];
     private BufferedReader sFileBf;
 
-    public OpenFile() throws IOException {
+    public OpenFile(Integer q) throws IOException {
+        quantity = q;
         FileReader files[] = new FileReader[10];
         FileReader sFile;
         for (int i = 0; i < 10; i++) {
-            try {
-                files[i] = new FileReader("src/infiles/arquivo" + i + ".dados");
-                filesBf[i] = new BufferedReader(files[i]);
-            } catch (Exception e) {
-                System.err.println(e);
-            }
+            files[i] = new FileReader("src/infiles/arquivo" + i + ".dados");
+            filesBf[i] = new BufferedReader(files[i]);
         }
         sFile = new FileReader("src/infiles/busca_100.dados");
         sFileBf = new BufferedReader(sFile);
     }
 
     public String[] getNumbers() throws IOException {
-        String values[] = new String[10000];
+        String values[] = new String[quantity];
         String linha;
         int k = 0;
         boolean fim;
@@ -41,7 +38,6 @@ public class OpenFile {
                 linha = filesBf[i].readLine();
                 k++;
             }
-
         }
         return values;
     }

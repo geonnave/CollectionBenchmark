@@ -29,10 +29,16 @@ public class Main {
 //        System.out.println("Digite o numero de vezes");
 //        Scanner sc = new Scanner(System.in);
 //        final Integer REPEAT = sc.nextInt();
-        final Integer REPEAT = 10;
-        new Recorder().populateFiles();
-        String values[] = new OpenFile().getNumbers();
-        String searchValues[] = new OpenFile().getSearchNumbers();
+        Integer REPEAT = 10;
+        Integer quantity = 10000;
+        if (args.length == 2) {
+            quantity = Integer.parseInt(args[0]);
+            REPEAT = Integer.parseInt(args[1]);
+        }
+        System.out.println("Executando testes com "+quantity+" elementos, "+REPEAT+" vezes");
+        new Recorder(quantity).populateFiles();
+        String values[] = new OpenFile(quantity).getNumbers();
+        String searchValues[] = new OpenFile(quantity).getSearchNumbers();
 
         CollectionsBenchmark    arrayList      = new CollectionsBenchmark(new ArrayList(),     values, searchValues);
         CollectionsBenchmark    vectorList     = new CollectionsBenchmark(new Vector(),        values, searchValues);
@@ -107,9 +113,9 @@ public class Main {
             linkedHashMapRemoveT[i] = linkedHashMap.runRemove().clone();
             treeMapRemoveT[i]       =       treeMap.runRemove().clone();
 
-            new Recorder().populateFiles();
-            values = new OpenFile().getNumbers();
-            searchValues = new OpenFile().getSearchNumbers();
+            new Recorder(quantity).populateFiles();
+            values = new OpenFile(quantity).getNumbers();
+            searchValues = new OpenFile(quantity).getSearchNumbers();
 
             arrayList    .setValues(values);
             vectorList   .setValues(values);
@@ -162,11 +168,11 @@ public class Main {
         treeMapRemoveTime       = average(      treeMapRemoveT);
 
         new FileOutputStream("src/outfiles/list_clock.dat");
-        new FileOutputStream("src/outfiles/set_clock.dat");
-        new FileOutputStream("src/outfiles/map_clock.dat");
+        new FileOutputStream( "src/outfiles/set_clock.dat");
+        new FileOutputStream( "src/outfiles/map_clock.dat");
         new FileOutputStream("src/outfiles/list_cpu.dat");
-        new FileOutputStream("src/outfiles/set_cpu.dat");
-        new FileOutputStream("src/outfiles/map_cpu.dat");
+        new FileOutputStream( "src/outfiles/set_cpu.dat");
+        new FileOutputStream( "src/outfiles/map_cpu.dat");
 
         new FileOutputStream("src/outfiles/insert_clock.dat");
         new FileOutputStream("src/outfiles/search_clock.dat");
@@ -176,11 +182,11 @@ public class Main {
         new FileOutputStream("src/outfiles/remove_cpu.dat");
 
         PrintStream listClockPs = new PrintStream("src/outfiles/list_clock.dat");
-        PrintStream setClockPs  = new PrintStream("src/outfiles/set_clock.dat");
-        PrintStream mapClockPs  = new PrintStream("src/outfiles/map_clock.dat");
+        PrintStream setClockPs  = new PrintStream( "src/outfiles/set_clock.dat");
+        PrintStream mapClockPs  = new PrintStream( "src/outfiles/map_clock.dat");
         PrintStream listCpuPs   = new PrintStream("src/outfiles/list_cpu.dat");
-        PrintStream setCpuPs    = new PrintStream("src/outfiles/set_cpu.dat");
-        PrintStream mapCpuPs    = new PrintStream("src/outfiles/map_cpu.dat");
+        PrintStream setCpuPs    = new PrintStream( "src/outfiles/set_cpu.dat");
+        PrintStream mapCpuPs    = new PrintStream( "src/outfiles/map_cpu.dat");
 
         PrintStream insertClockPS   = new PrintStream("src/outfiles/insert_clock.dat");
         PrintStream searchClockPS   = new PrintStream("src/outfiles/search_clock.dat");
@@ -251,4 +257,3 @@ public class Main {
     }
 
 }
-

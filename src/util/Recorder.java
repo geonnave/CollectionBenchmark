@@ -2,6 +2,7 @@ package util;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 /**
@@ -9,40 +10,25 @@ import java.io.PrintStream;
  * @author geovane
  */
 public class Recorder {
-
+    private Integer quantity;
     private FileOutputStream files[] = new FileOutputStream[10];
     private FileOutputStream sFile;
 
-    public Recorder() throws FileNotFoundException {
+    public Recorder(Integer q) throws FileNotFoundException {
+        quantity = q;
         for (int i = 0; i < 10; i++) {
-            try
-            {
-                files[i] = new FileOutputStream("src/infiles/arquivo" + i +".dados");
-            }
-            catch (Exception e)
-            {
-                System.err.println(e);
-            }
+            files[i] = new FileOutputStream("src/infiles/arquivo" + i +".dados");
         }
         sFile = new FileOutputStream("src/infiles/busca_100.dados");
     }
 
-    public void populateFiles() throws FileNotFoundException {
+    public void populateFiles() throws FileNotFoundException, IOException {
         for (int i = 0; i < 10; i++) {
-            try
-            {
-                new PrintStream(files[i]).println (Generator.randomNumbers(1000, i*1000, (i+1)*1000));
-                files[i].close();
-                if (i == 0) {
-                    new PrintStream(sFile).println (Generator.randomNumbers(100, 0, 10000));
-                    sFile.close();
-                }
-            }
-            catch (Exception e)
-            {
-                System.err.println(e);
-            }
+            new PrintStream(files[i]).println (Generator.randomNumbers(quantity/10, i*(quantity/10), (i+1)*(quantity/10)));
+            files[i].close();
         }
+        new PrintStream(sFile).println (Generator.randomNumbers(100, 0, quantity));
+        sFile.close();
     }
 
 }

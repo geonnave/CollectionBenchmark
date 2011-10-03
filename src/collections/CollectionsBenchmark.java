@@ -55,9 +55,7 @@ public class CollectionsBenchmark<E> extends benchmark.Benchmark{
     }
 
     private void remove() {
-        for (String value : values) {
-            collection.remove((E) value);
-        }
+        collection.clear();
     }
 
     @Override

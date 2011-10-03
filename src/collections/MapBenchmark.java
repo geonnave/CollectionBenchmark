@@ -51,14 +51,12 @@ public class MapBenchmark<E, T> extends benchmark.Benchmark{
     
     private void search() {
         for (String value : searchValues) {
-            map.containsValue((T) value);
+            map.containsKey((E) value);
         }
     }
 
     private void remove() {
-        for (String value : values) {
-            map.remove((E) value);
-        }
+        map.clear();
     }
 
     @Override
