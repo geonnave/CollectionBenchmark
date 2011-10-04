@@ -6,4 +6,4 @@ HELLO MY FRIEND,
 
 just type `make` and be happy =)
 
-(you must have ruby installed).
+(you must have ruby installed)
