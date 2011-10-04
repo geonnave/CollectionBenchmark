@@ -3,8 +3,8 @@ ArrayList	1
 Vector	0
 LinkedList	1
 HashSet	1
-linkedHashSet	1
+linkedHashSet	0
 treeSet	0
-HashMap	1
+HashMap	0
 LinkedHashMap	0
 treeMap	0
