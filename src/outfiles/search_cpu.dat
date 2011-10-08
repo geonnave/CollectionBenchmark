@@ -1,10 +1,10 @@
 
-ArrayList	43
-Vector	43
-LinkedList	45
-HashSet	1
+ArrayList	5
+Vector	4
+LinkedList	4
+HashSet	0
 linkedHashSet	0
-treeSet	2
+treeSet	0
 HashMap	0
 LinkedHashMap	0
 treeMap	0

@@ -1,5 +1,4 @@
 run: clean compile exec graphics move_images article
-    #clean compile exec generate_graphics copy_images
 
 article:
 	cd artigo && make
@@ -13,7 +12,7 @@ clean:
 	rm -rf build/*
 
 exec:
-	java -cp build collectionbenchmark.Main 50000 10
+	java -cp build collectionbenchmark.Main 10000 10
 
 graphics:
 	cd src/outfiles && make

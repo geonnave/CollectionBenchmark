@@ -5,7 +5,7 @@ IO.popen("gnuplot", "w+") do |pipe|
 	pipe.puts "set style fill solid 1.00 border -1"
 	pipe.puts "set style data histogram"
 	pipe.puts "set style histogram cluster gap 1"
-	pipe.puts "set yrange [0:100]"
+	pipe.puts "set yrange [0:20]"
 	pipe.puts "set ylabel 'time in milliseconds'"
 	pipe.puts "set terminal png"
 	pipe.puts "set grid y"
