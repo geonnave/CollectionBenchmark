@@ -1,7 +1,10 @@
 \section{Descrição do Benchmark Criado} \label{sec:desc_bench}
-	O trabalho desenvolvido, consiste em um benchmark de tempos de inserção de dez mil elementos aleatórios (gerados e armazenados previamente em arquivos), busca de cem elementos aleatórios na faixa de zero a dez mil (idem) e a remoção destes elementos, nas principais estruturas do Framework Collection do Java. As estruturas utilizadas foram: \texttt{ArrayList}, \texttt{Vector} e \texttt{LinkedList} (Interface \texttt{List}); \texttt{HashSet}, \texttt{LinkedHashSet} e \texttt{TreeSet} (Interface \texttt{Set}); \texttt{HashMap}, \texttt{LinkedHashMap} e \texttt{TreeMap} (Interface \texttt{Map}).\\
+	O trabalho desenvolvido, consiste em um benchmark de tempos de inserção de dez mil elementos aleatórios (gerados e armazenados previamente em arquivos), busca de cem elementos aleatórios na faixa de zero a dez mil (idem) e a remoção destes elementos, nas principais estruturas do Framework Collection do Java. As estruturas utilizadas foram: \texttt{ArrayList}, \texttt{Vector} e \texttt{LinkedList} (Interface \texttt{List}); \texttt{HashSet}, \texttt{LinkedHashSet} e \texttt{TreeSet} (Interface \texttt{Set}); \texttt{HashMap}, \texttt{LinkedHashMap} e \texttt{TreeMap} (Interface \texttt{Map}).
+
 \subsection{A marcação do tempo}
-	Para a realização da medição do tempo, uma classe \texttt{Benchmark} foi criada, de modo que possa ser extendida por qualquer outra, sendo portanto possível medir o tempo de execução de qualquer código. Assim, temos um método abstrato \textbf{exec()}, o qual será escrito pela classe que desejar utilizar-se deste Benchmark. A medição do tempo acontece ao chamar-se o método \textbf{start()}, o qual em seu interior marcará o início da contagem, executará o método \textbf{exec()} e marcará o final da contagem. O cógido abaixo tem a intenção de tornar mais clara toda esta ideia:\\
+	Para a realização da medição do tempo, uma classe \texttt{Benchmark} foi criada, de modo que possa ser extendida por qualquer outra, sendo portanto possível medir o tempo de execução de qualquer código. Assim, temos um método abstrato \textbf{exec()}, o qual será escrito pela classe que desejar utilizar-se deste Benchmark. A medição do tempo acontece ao chamar-se o método \textbf{start()}, o qual em seu interior marcará o início da contagem, executará o método \textbf{exec()} e marcará o final da contagem. O cógido abaixo tem a intenção de tornar mais clara toda esta ideia:
+
+\newpage
 	\begin{minted}[linenos=true]{java}
 public abstract void exec();
 
@@ -11,7 +14,9 @@ public void start() {
   time.end();
 }
 	\end{minted}
-	O objeto \textbf{time}, instância da classe \texttt{Time}, encarrega-se de marcar os tempos de relógio e cpu, do instante imediatamente anterior à execução e do momento posterior ao seu término.\\
-\subsection{Executando e Salvando Resultados}
-	O procedimento que será descrito a seguir foi realizado para todas as implementações do Framework Collection descritas no primeiro parágrafo desta seção.\\
+	O objeto \textbf{time}, instância da classe \texttt{Time}, encarrega-se de marcar os tempos de relógio e cpu, do instante imediatamente anterior à execução e do momento posterior ao seu término.
+
+\subsection{Executando e Salvando Resultados} \label{subsec:exec_save}
+	O procedimento que será descrito a seguir foi realizado para todas as implementações do Framework Collection citadas no primeiro parágrafo desta seção.
+
 	São gerados os arquivos especificados para a realização do benchmark e em seguida os valores neles contidos são utilizados para as operações de inserção, busca e remoção --- as quais se deseja medir o desempenho. Esse procedimento é repetido \textsl{n} vezes, e na sequencia é tirada a média de cada tempo de cada estrutura. Estes resultados são então gravados em arquivos .dat que servirão para a construção dos gráficos.
